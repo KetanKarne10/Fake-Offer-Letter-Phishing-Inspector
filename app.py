@@ -439,7 +439,7 @@ st.markdown(
         <h1 class="cyber-title">🛡️ Fake Offer Letter & Phishing Inspector</h1>
         <p class="cyber-subtitle">Real-time Scam Threat Index (0–100%) for Job Offers, Rental Listings & Phishing Links</p>
     </div>
-    <div class="status-pill" aria-label="System Status: SOC Threat Engine Active">
+    <div class="status-pill">
         <span class="status-dot"></span>
         <span>SOC SHIELD ACTIVE</span>
     </div>
@@ -478,9 +478,9 @@ Please review and sign the digital agreement via our secure portal at https://st
     if "input_text" not in st.session_state:
         st.session_state.input_text = ""
 
-    if col_btn1.button("🚨 Load Scam Sample", aria_label="Load sample advance-fee scam text"):
+    if col_btn1.button("🚨 Load Scam Sample", help="Load sample advance-fee scam text"):
         st.session_state.input_text = SCAM_SAMPLE
-    if col_btn2.button("✅ Load Legitimate Sample", aria_label="Load sample legitimate job offer"):
+    if col_btn2.button("✅ Load Legitimate Sample", help="Load sample legitimate job offer"):
         st.session_state.input_text = SAFE_SAMPLE
 
     pasted_input = st.text_area(
@@ -530,7 +530,7 @@ with tab_url:
 st.markdown("<div style='height: 10px;'></div>", unsafe_allow_html=True)
 
 # ----------------- SCAN TRIGGER -----------------
-inspect_btn = st.button("🛡️ Execute SOC Threat Inspection", use_container_width=True, aria_label="Run Threat Inspection")
+inspect_btn = st.button("🛡️ Execute SOC Threat Inspection", use_container_width=True, help="Run Threat Inspection")
 
 if inspect_btn:
     api_key = None
@@ -654,7 +654,7 @@ if inspect_btn:
                     file_name=f"phishguard_audit_{int(time.time())}.json",
                     mime="application/json",
                     use_container_width=True,
-                    aria_label="Download Forensic Audit Report in JSON format",
+                    help="Download Forensic Audit Report in JSON format",
                 )
 
             except Exception as e:
